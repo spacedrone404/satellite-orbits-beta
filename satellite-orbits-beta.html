@@ -1,73 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blinking Stars</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    body,
-    html {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow-x: hidden;
-      background-color: black;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center center;
-    }
-
-
-    .content {
-      color: aquamarine;
-      position: absolute;
-      width: 188px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .space {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-    }
-
-
-    .flame {
-      position: absolute;
-      width: 100%;
-    }
-
-    .flame-pix {
-      position: relative;
-      top: 100px;
-      left: 1378px;
-      animation: glitch 0.3s infinite, glowing 2s infinite alternate;
-
-    }
-
-
-    @keyframes glitch {
-      0% {
-        transform: rotateX(0deg) skewX(0deg);
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Satellite Orbits</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        background-color: black;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
       }
 
-      50% {
-        transform: rotateX(0.18deg) skewX(0.18deg);
+      .content {
+        color: aquamarine;
+        position: absolute;
+        width: 188px;
+        margin: 0 auto;
+        text-align: center;
       }
 
-      100% {
-        transform: rotateX(0deg) skewX(0deg);
+      .space {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
       }
-    }
 
-    /* @keyframes glowing {
+      .flame {
+        position: absolute;
+        width: 100%;
+      }
+
+      .flame-pix {
+        position: relative;
+        top: 100px;
+        left: 1378px;
+        animation: glitch 0.3s infinite, glowing 2s infinite alternate;
+      }
+
+      @keyframes glitch {
+        0% {
+          transform: rotateX(0deg) skewX(0deg);
+        }
+
+        50% {
+          transform: rotateX(0.18deg) skewX(0.18deg);
+        }
+
+        100% {
+          transform: rotateX(0deg) skewX(0deg);
+        }
+      }
+
+      /* @keyframes glowing {
             from {
                 filter: drop-shadow(4px 4px 5px #af64ff);
             }
@@ -78,265 +72,226 @@
 
         } */
 
-
-    .star {
-      position: absolute;
-      width: 5px;
-      height: 5px;
-      background-color: white;
-      border-radius: 50%;
-      opacity: 0;
-      animation: blink 6s infinite alternate;
-
-    }
-
-    .star-moving {
-      position: absolute;
-      width: 5px;
-      height: 5px;
-      background-color: white;
-      border-radius: 50%;
-      opacity: 0;
-      animation: blink 6s infinite, matrix-move 30s infinite;
-
-    }
-
-
-    .star-middle {
-      position: absolute;
-      width: 3px;
-      height: 3px;
-      background-color: rgb(89, 226, 253);
-      border-radius: 50%;
-      opacity: 0;
-      animation: blink 8s infinite;
-
-    }
-
-    .star-small {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background-color: rgb(66, 128, 235);
-      border-radius: 50%;
-      opacity: 0;
-      animation: blink 6s infinite reverse;
-
-    }
-
-    @keyframes blink {
-      0% {
+      .star {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        background-color: white;
+        border-radius: 50%;
         opacity: 0;
-        box-shadow: 0 0 2px 2px rgba(222, 248, 255, 0.27);
-
+        animation: blink 6s infinite alternate;
       }
 
-      54% {
-        opacity: 1;
-        box-shadow: 0 0 2px 2px rgba(220, 238, 255, 0.27);
-
-
-      }
-
-      100% {
+      .star-moving {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        background-color: white;
+        border-radius: 50%;
         opacity: 0;
-
-
-      }
-    }
-
-
-    @keyframes matrix-move {
-
-
-
-      from {
-        top: 0;
+        animation: blink 6s infinite, matrix-move 30s infinite;
       }
 
-      to {
-        top: 140vh;
-      }
-    }
-
-
-
-    .arrow-down {
-      width: 0;
-      height: 0;
-      border-left: 40px solid transparent;
-      border-right: 40px solid transparent;
-      border-top: 40px solid #ffffff;
-      transition: transform 0.2s;
-      display: none;
-
-
-
-    }
-
-    .show-details {
-      width: 512px;
-      height: 80px;
-      background-color: #000000;
-      border: 4px groove #ffffff;
-      cursor: pointer;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-
-    }
-
-    .show-details:hover+.arrow-down {
-      display: block;
-      animation: bounce 0.5s linear;
-      text-align: center;
-      margin-top: 8px;
-
-
-
-    }
-
-    .show-details-wrapper {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 50px;
-    }
-
-    @keyframes bounce {
-
-      0%,
-      20%,
-      50%,
-      80%,
-      100% {
-        transform: translateY(0);
+      .star-middle {
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        background-color: rgb(89, 226, 253);
+        border-radius: 50%;
+        opacity: 0;
+        animation: blink 8s infinite;
       }
 
-      40% {
-        transform: translateY(-10px);
+      .star-small {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background-color: rgb(66, 128, 235);
+        border-radius: 50%;
+        opacity: 0;
+        animation: blink 6s infinite reverse;
       }
 
-      60% {
+      @keyframes blink {
+        0% {
+          opacity: 0;
+          box-shadow: 0 0 2px 2px rgba(222, 248, 255, 0.27);
+        }
 
-        transform: translateY(-5px);
+        54% {
+          opacity: 1;
+          box-shadow: 0 0 2px 2px rgba(220, 238, 255, 0.27);
+        }
+
+        100% {
+          opacity: 0;
+        }
       }
-    }
 
-    .show-details-link {
-      text-decoration: none;
-      font-size: 28px;
-      color: #ffffff;
-      font-weight: bold;
-      padding: 160px;
+      @keyframes matrix-move {
+        from {
+          top: 0;
+        }
 
+        to {
+          top: 140vh;
+        }
+      }
 
-    }
+      .arrow-down {
+        width: 0;
+        height: 0;
+        border-left: 40px solid transparent;
+        border-right: 40px solid transparent;
+        border-top: 40px solid #ffffff;
+        transition: transform 0.2s;
+        display: none;
+      }
 
+      .show-details {
+        width: 512px;
+        height: 80px;
+        background-color: #000000;
+        border: 4px groove #ffffff;
+        cursor: pointer;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
+      .show-details:hover + .arrow-down {
+        display: block;
+        animation: bounce 0.5s linear;
+        text-align: center;
+        margin-top: 8px;
+      }
 
-    .orbit {
-      position: absolute;
-      right: -90px;
-      top: 120px;
-      width: 88rem;
-      height: 88rem;
-      animation: rotations1 6s linear infinite;
-      outline: 4px rgb(11, 209, 130) dashed;
-      border-radius: 50%;
+      .show-details-wrapper {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 50px;
+      }
 
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
 
-    }
+        40% {
+          transform: translateY(-10px);
+        }
 
-    .orbit span {
-      position: fixed;
+        60% {
+          transform: translateY(-5px);
+        }
+      }
 
+      .show-details-link {
+        text-decoration: none;
+        font-size: 28px;
+        color: #ffffff;
+        font-weight: bold;
+        padding: 160px;
+      }
 
-    }
+      .orbit {
+        position: absolute;
+        right: -90px;
+        top: 120px;
+        width: 88rem;
+        height: 88rem;
+        animation: rotations1 6s linear infinite;
+        outline: 4px rgb(11, 209, 130) dashed;
+        border-radius: 50%;
+      }
 
-    span {
-      color: white;
-      display: flex;
-      position: relative;
-      left: 20%;
-      top: 10%;
-      /* transform: translate(-50%, -50%); */
-      transform: translateX(-5%);
-      font-size: 28px;
-    }
+      .orbit span {
+        position: fixed;
+      }
 
+      span {
+        color: white;
+        display: flex;
+        position: relative;
+        left: 20%;
+        top: 10%;
+        /* transform: translate(-50%, -50%); */
+        transform: translateX(-5%);
+        font-size: 28px;
+      }
 
-    .orbit2 {
-      position: absolute;
-      right: 50px;
-      top: 270px;
-      width: 70rem;
-      height: 70rem;
-      animation: rotations2 6s linear infinite;
-      outline: 4px rgb(15, 175, 255) dashed;
-      border-radius: 50%;
+      .orbit2 {
+        position: absolute;
+        right: 50px;
+        top: 270px;
+        width: 70rem;
+        height: 70rem;
+        animation: rotations2 6s linear infinite;
+        outline: 4px rgb(15, 175, 255) dashed;
+        border-radius: 50%;
+      }
 
-    }
+      .orbit3 {
+        position: absolute;
+        width: 55rem;
+        height: 55rem;
+        right: -320px;
+        top: -100px;
+        animation: rotations3 6s linear infinite;
+        outline: 4px rgb(255, 0, 0) dashed;
+        border-radius: 50%;
+        margin: 30rem;
+      }
 
+      .orbit4 {
+        position: absolute;
+        width: 38rem;
+        height: 38rem;
+        right: -220px;
+        top: -50px;
+        animation: rotations4 6s linear infinite;
+        outline: 4px rgb(225, 255, 0) dashed;
+        border-radius: 50%;
+        margin: 30rem;
+      }
 
-    .orbit3 {
-      position: absolute;
-      width: 55rem;
-      height: 55rem;
-      right: -320px;
-      top: -100px;
-      animation: rotations3 6s linear infinite;
-      outline: 4px rgb(255, 0, 0) dashed;
-      border-radius: 50%;
-      margin: 30rem;
-    }
+      #orbit5 {
+        position: absolute;
+        width: 18rem;
+        height: 18rem;
+        right: -120px;
+        top: -10px;
+        animation: rotations5 6s linear infinite;
+        outline: 4px rgb(251, 0, 151) dashed;
+        border-radius: 50%;
+        margin: 40rem;
+      }
 
-    .orbit4 {
-      position: absolute;
-      width: 38rem;
-      height: 38rem;
-      right: -220px;
-      top: -50px;
-      animation: rotations4 6s linear infinite;
-      outline: 4px rgb(225, 255, 0) dashed;
-      border-radius: 50%;
-      margin: 30rem;
-    }
+      #orbit5 span {
+        z-index: 10000;
+      }
 
-    #orbit5 {
-      position: absolute;
-      width: 18rem;
-      height: 18rem;
-      right: -120px;
-      top: -10px;
-      animation: rotations5 6s linear infinite;
-      outline: 4px rgb(251, 0, 151) dashed;
-      border-radius: 50%;
-      margin: 40rem;
-    }
+      .orbit:before,
+      .orbit:after {
+        position: absolute;
+        content: "";
+        display: block;
+        height: 3rem;
+        width: 3rem;
+        /* animation: inherit; */
+        animation-direction: reverse;
+        /* animation: planet-shadow 4s infinite; */
+      }
 
-
-    #orbit5 span {
-	z-index: 10000;
-     }
-
-    .orbit:before,
-    .orbit:after {
-      position: absolute;
-      content: '';
-      display: block;
-      height: 3rem;
-      width: 3rem;
-      /* animation: inherit; */
-      animation-direction: reverse;
-      /* animation: planet-shadow 4s infinite; */
-    }
-
-    /* @keyframes planet-shadow {
+      /* @keyframes planet-shadow {
       0% {
         filter: drop-shadow(3px 4px 2px #ffffff);
       }
@@ -347,204 +302,185 @@
 
     } */
 
+      .orbit2:before,
+      .orbit2:after {
+        position: absolute;
+        content: "";
+        display: block;
+        height: 3rem;
+        width: 3rem;
+        animation: inherit;
+        animation-direction: reverse;
+      }
 
-    .orbit2:before,
-    .orbit2:after {
-      position: absolute;
-      content: '';
-      display: block;
-      height: 3rem;
-      width: 3rem;
-      animation: inherit;
-      animation-direction: reverse;
-    }
+      .orbit3:before,
+      .orbit3:after {
+        position: absolute;
+        content: "";
+        display: block;
+        height: 3rem;
+        width: 3rem;
+        animation: inherit;
+        animation-direction: reverse;
+      }
 
-    .orbit3:before,
-    .orbit3:after {
-      position: absolute;
-      content: '';
-      display: block;
-      height: 3rem;
-      width: 3rem;
-      animation: inherit;
-      animation-direction: reverse;
-    }
+      .orbit4:before,
+      .orbit4:after {
+        position: absolute;
+        content: "";
+        display: block;
+        height: 3rem;
+        width: 3rem;
+        animation: inherit;
+        animation-direction: reverse;
+      }
 
-    .orbit4:before,
-    .orbit4:after {
-      position: absolute;
-      content: '';
-      display: block;
-      height: 3rem;
-      width: 3rem;
-      animation: inherit;
-      animation-direction: reverse;
-    }
+      #orbit5:before,
+      #orbit5:after {
+        position: absolute;
+        content: "";
+        display: block;
+        height: 3rem;
+        width: 3rem;
+        animation: inherit;
+        animation-direction: reverse;
+      }
 
-    #orbit5:before,
-    #orbit5:after {
-      position: absolute;
-      content: '';
-      display: block;
-      height: 3rem;
-      width: 3rem;
-      animation: inherit;
-      animation-direction: reverse;
-    }
+      .orbit:before {
+        background-color: rgb(12, 208, 120);
+        border-radius: 50%;
+        top: 11.4rem;
+        left: 11.4rem;
+      }
 
+      .orbit2:before {
+        background-color: rgb(15, 175, 255);
+        border-radius: 50%;
+        top: 9rem;
+        left: 9rem;
+      }
 
+      .orbit3:before {
+        background-color: rgb(255, 0, 4);
+        border-radius: 50%;
+        top: 9rem;
+        left: 4rem;
+      }
 
-    .orbit:before {
-      background-color: rgb(12, 208, 120);
-      border-radius: 50%;
-      top: 11.4rem;
-      left: 11.4rem;
-    }
+      .orbit4:before {
+        background-color: rgb(217, 241, 1);
+        border-radius: 50%;
+        top: 4rem;
+        left: 4rem;
+      }
 
-    .orbit2:before {
-      background-color: rgb(15, 175, 255);
-      border-radius: 50%;
-      top: 9rem;
-      left: 9rem;
-    }
+      #orbit5:before {
+        background-color: rgb(251, 0, 151);
+        border-radius: 50%;
+        top: 2rem;
+        left: 2rem;
+      }
 
-    .orbit3:before {
-      background-color: rgb(255, 0, 4);
-      border-radius: 50%;
-      top: 9rem;
-      left: 4rem;
-    }
+      #orbit5:after {
+        background-color: rgb(255, 132, 0);
+        border-radius: 50%;
+        top: 2rem;
+        left: 2rem;
+      }
 
-    .orbit4:before {
-      background-color: rgb(217, 241, 1);
-      border-radius: 50%;
-      top: 4rem;
-      left: 4rem;
-    }
-
-    #orbit5:before {
-      background-color: rgb(251, 0, 151);
-      border-radius: 50%;
-      top: 2rem;
-      left: 2rem;
-    }
-
-    #orbit5:after {
-      background-color: rgb(255, 132, 0);
-      border-radius: 50%;
-      top: 2rem;
-      left: 2rem;
-    }
-
-
-
-    /* @keyframes rotations {
+      /* @keyframes rotations {
       to {
         transform: rotate(360deg)
       }
     } */
 
-    @keyframes rotations1 {
-      0% {
-        transform: rotate(-45deg)
+      @keyframes rotations1 {
+        0% {
+          transform: rotate(-45deg);
+        }
+
+        50% {
+          transform: rotate(25deg);
+        }
+
+        100% {
+          transform: rotate(-45deg);
+        }
       }
 
-      50% {
-        transform: rotate(25deg)
+      @keyframes rotations2 {
+        0% {
+          transform: rotate(35deg);
+        }
+
+        50% {
+          transform: rotate(-15deg);
+        }
+
+        100% {
+          transform: rotate(35deg);
+        }
       }
 
-      100% {
-        transform: rotate(-45deg)
+      @keyframes rotations3 {
+        0% {
+          transform: rotate(10deg);
+        }
+
+        50% {
+          transform: rotate(-21deg);
+        }
+
+        100% {
+          transform: rotate(10deg);
+        }
       }
 
-    }
+      @keyframes rotations4 {
+        0% {
+          transform: rotate(55deg);
+        }
 
-    @keyframes rotations2 {
-      0% {
-        transform: rotate(35deg)
+        50% {
+          transform: rotate(-5deg);
+        }
+
+        100% {
+          transform: rotate(55deg);
+        }
       }
 
-      50% {
-        transform: rotate(-15deg)
+      @keyframes rotations5 {
+        to {
+          transform: rotate(360deg);
+        }
       }
+    </style>
+  </head>
 
-      100% {
-        transform: rotate(35deg)
-      }
+  <body>
+    <div class="orbit">
+      <span>John Doe was here!</span>
+    </div>
 
-    }
+    <div class="orbit2">
+      <span>Egor is a looser </span>
+    </div>
 
-    @keyframes rotations3 {
-      0% {
-        transform: rotate(10deg)
-      }
+    <div class="orbit3">
+      <span>Vic needs to get out</span>
+    </div>
 
-      50% {
-        transform: rotate(-21deg)
-      }
+    <div class="orbit4">
+      <span>Moon landing is OK!</span>
+    </div>
 
-      100% {
-        transform: rotate(10deg)
-      }
+    <div id="orbit5">
+      <span>I'm abnormal</span>
+    </div>
 
-    }
+    <span>Spinning orbits</span>
 
-    @keyframes rotations4 {
-      0% {
-        transform: rotate(55deg)
-      }
-
-      50% {
-        transform: rotate(-5deg)
-      }
-
-      100% {
-        transform: rotate(55deg)
-      }
-
-    }
-
-
-    @keyframes rotations5 {
-      to {
-        transform: rotate(360deg)
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-
-
-  <div class="orbit">
-    <span>John Doe was here!</span>
-  </div>
-
-  <div class="orbit2">
-	<span>Egor is a looser </span>
-  </div>
-
-  <div class="orbit3">
-	<span>Vic needs to get out</span>
-  </div>
-
-  <div class="orbit4">
-  	<span>Moon landing is OK!</span>
-  </div>
-
-  <div id="orbit5">
-	<span>I'm abnormal</span>
-  </div>
-  
-  <span>Spinning orbits</span>
-
-  <script>
-
-  </script>
-
-</body>
-
-
-
+    <script></script>
+  </body>
 </html>
